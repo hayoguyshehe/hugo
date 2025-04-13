@@ -1,8 +1,10 @@
 {
   "build": {
     "env": {
-      "HUGO_VERSION": "0.111.3"
+      "HUGO_VERSION": "0.111.3",
+      "HUGO_ENV": "production",
+      "NODE_ENV": "production"
     }
   },
-  "buildCommand": "npm run vercel-build"
+  "buildCommand": "npm run build"
 }
