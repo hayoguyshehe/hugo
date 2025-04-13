@@ -1,44 +1,32 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "id" }}">
+<html lang="{{ .Site.LanguageCode | default "en" }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
     
-    <!-- SEO Optimization -->
-    {{ partial "seo.html" . }}
+    <!-- Replace the PostCSS function with a simple stylesheet link -->
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
     
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    
-    <!-- CSS -->
-    {{ $styles := resources.Get "css/main.css" | css.PostCSS | resources.Minify }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Additional head elements -->
     {{ block "head" . }}{{ end }}
 </head>
-<body class="flex flex-col min-h-screen">
-    {{ partial "header.html" . }}
+<body>
+    <header>
+        <nav>
+            <a href="{{ .Site.BaseURL }}">Home</a>
+            {{ range .Site.Menus.main }}
+            <a href="{{ .URL }}">{{ .Name }}</a>
+            {{ end }}
+        </nav>
+    </header>
     
-    <main class="flex-grow">
+    <main>
         {{ block "main" . }}{{ end }}
     </main>
     
-    {{ partial "footer.html" . }}
-    
-    <!-- JavaScript -->
-    {{ with resources.Get "js/main.js" }}
-        {{ $js := . | js.Build | resources.Minify }}
-        <script src="{{ $js.RelPermalink }}"></script>
-    {{ end }}
-    
-    <!-- Additional scripts -->
-    {{ block "scripts" . }}{{ end }}
+    <footer>
+        <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p>
+    </footer>
 </body>
 </html>
