@@ -1,4 +1,3 @@
-<!-- Add this script to your footer or at the end of your layout -->
 <script>
   function playAudio(audioSrc, title) {
     // Check if there's already a player
@@ -43,35 +42,47 @@
   }
 </script>
 
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>About</h3>
-            <p>Your personal website description here.</p>
+<footer class="bg-green-900 text-white py-8 mt-12 border-t border-green-700">
+  <div class="container mx-auto px-4">
+    <!-- Footer content grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <!-- About section -->
+      <div>
+        <h3 class="text-xl font-semibold text-green-300 mb-4">Tentang Kami</h3>
+        <p class="text-gray-200">Kicau Burung Alam adalah situs yang didedikasikan untuk para pecinta burung kicau dan alam liar Indonesia.</p>
+      </div>
+      
+      <!-- Quick links -->
+      <div>
+        <h3 class="text-xl font-semibold text-green-300 mb-4">Tautan Cepat</h3>
+        <ul class="space-y-2">
+          <li><a href="{{ .Site.BaseURL | relLangURL }}" class="text-gray-200 hover:text-green-300 transition duration-200">Beranda</a></li>
+          <li><a href="{{ "kicauan/" | relLangURL }}" class="text-gray-200 hover:text-green-300 transition duration-200">Koleksi Kicauan</a></li>
+          <li><a href="{{ "artikel/" | relLangURL }}" class="text-gray-200 hover:text-green-300 transition duration-200">Artikel</a></li>
+        </ul>
+      </div>
+      
+      <!-- Connect section -->
+      <div>
+        <h3 class="text-xl font-semibold text-green-300 mb-4">Hubungi Kami</h3>
+        <div class="flex space-x-4">
+          <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer" class="bg-green-700 hover:bg-green-600 h-10 w-10 rounded-full flex items-center justify-center transition duration-200" title="Facebook">
+            <i class="fab fa-facebook-f text-xl"></i>
+          </a>
+          <a href="https://youtube.com/channel/yourchannelid" target="_blank" rel="noopener noreferrer" class="bg-green-700 hover:bg-green-600 h-10 w-10 rounded-full flex items-center justify-center transition duration-200" title="YouTube">
+            <i class="fab fa-youtube text-xl"></i>
+          </a>
+          <a href="#" class="bg-green-700 hover:bg-green-600 h-10 w-10 rounded-full flex items-center justify-center transition duration-200" title="Instagram">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
         </div>
-        
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/posts">Posts</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Connect</h3>
-            <div class="social-icons">
-                <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-                <a href="#" aria-label="GitHub"><i class="fa fa-github"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-            </div>
-        </div>
+      </div>
     </div>
     
-    <div class="footer-bottom">
-        <p>&copy; {{ now.Format "2006" }} Your Name. All rights reserved.</p>
-        <p>Built with <a href="https://gohugo.io" target="_blank">Hugo</a></p>
+    <!-- Footer bottom -->
+    <div class="pt-6 mt-6 border-t border-green-700 text-center text-sm text-gray-300">
+      <p>&copy; {{ now.Format "2006" }} Kicau Burung Alam. Hak Cipta Dilindungi.</p>
+      <p class="mt-2">Dibuat dengan <a href="https://gohugo.io" target="_blank" class="text-green-300 hover:text-green-200">Hugo</a></p>
     </div>
+  </div>
 </footer>
