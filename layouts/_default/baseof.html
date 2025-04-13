@@ -1,32 +1,44 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "en" }}">
+<html lang="{{ .Site.LanguageCode | default "id" }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
     
-    <!-- Include Tailwind CSS -->
-    <link href="{{ "css/tailwind.css" | relURL }}" rel="stylesheet">
+    <!-- SEO Optimization -->
+    {{ partial "seo.html" . }}
     
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- CSS -->
+    {{ $styles := resources.Get "css/main.css" | css.PostCSS | resources.Minify }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Additional head elements -->
     {{ block "head" . }}{{ end }}
 </head>
-<body class="bg-white text-gray-800 font-sans">
-    <header class="container mx-auto px-4 py-6">
-        <nav class="flex space-x-4">
-            <a href="{{ .Site.BaseURL }}" class="text-blue-600 hover:text-blue-800">Home</a>
-            {{ range .Site.Menus.main }}
-            <a href="{{ .URL }}" class="text-blue-600 hover:text-blue-800">{{ .Name }}</a>
-            {{ end }}
-        </nav>
-    </header>
+<body class="flex flex-col min-h-screen">
+    {{ partial "header.html" . }}
     
-    <main class="container mx-auto px-4 py-6">
+    <main class="flex-grow">
         {{ block "main" . }}{{ end }}
     </main>
     
-    <footer class="container mx-auto px-4 py-6 text-center text-gray-600">
-        <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p>
-    </footer>
+    {{ partial "footer.html" . }}
+    
+    <!-- JavaScript -->
+    {{ with resources.Get "js/main.js" }}
+        {{ $js := . | js.Build | resources.Minify }}
+        <script src="{{ $js.RelPermalink }}"></script>
+    {{ end }}
+    
+    <!-- Additional scripts -->
+    {{ block "scripts" . }}{{ end }}
 </body>
 </html>
