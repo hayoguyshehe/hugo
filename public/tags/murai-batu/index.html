@@ -1,25 +1,88 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murai Batu | My New Hugo Site</title>
-    <meta name="description" content="">
     
     
-    <link href="/css/tailwind.css" rel="stylesheet">
+    <title>Murai Batu | Kicau Burung Alam</title>
+    
+    
+    <meta name="google-adsense-account" content="ca-pub-2390419518403328">
+    
+    
+    
+<title>Murai Batu | My New Hugo Site</title>
+<meta name="description" content="">
+
+
+<link rel="canonical" href="http://localhost:1313/tags/murai-batu/">
+
+
+<meta property="og:title" content="Murai Batu | My New Hugo Site">
+<meta property="og:description" content="">
+<meta property="og:url" content="http://localhost:1313/tags/murai-batu/">
+<meta property="og:site_name" content="My New Hugo Site">
+
+<meta property="og:type" content="website">
+
+
+<meta property="og:image" content="http://localhost:1313/images/default-og-image.jpg">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Murai Batu | My New Hugo Site">
+<meta name="twitter:description" content="">
+
+<meta name="twitter:image" content="http://localhost:1313/images/default-og-image.jpg">
+
+
+
+
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    
+    
+        
+        <link rel="stylesheet" href="/css/main.min.css">
+    
+    
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2390419518403328"
+     crossorigin="anonymous"></script>
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     
     
 </head>
-<body class="bg-white text-gray-800 font-sans">
-    <header class="container mx-auto px-4 py-6">
-        <nav class="flex space-x-4">
-            <a href="http://localhost:1313/" class="text-blue-600 hover:text-blue-800">Home</a>
-            
+<body class="flex flex-col min-h-screen">
+    <header class="bg-primary shadow-md">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center">
+            <img src="https://res.cloudinary.com/djnquduyl/image/upload/v1743013684/lg_kicau_burung_rpwxal.png" alt="Kicau Burung Alam Logo" class="h-12 mr-3">
+            <span class="text-xl font-bold text-white">Kicau Burung Alam</span>
+        </a>
+        
+        <nav>
+            <ul class="flex space-x-6">
+                <li><a href="/" class="text-white hover:text-accent">Home</a></li>
+                <li><a href="/posts" class="text-white hover:text-accent">Articles</a></li>
+                <li><a href="/about" class="text-white hover:text-accent">About</a></li>
+                <li><a href="/contact" class="text-white hover:text-accent">Contact</a></li>
+            </ul>
         </nav>
-    </header>
+    </div>
+</header>
     
-    <main class="container mx-auto px-4 py-6">
+    <main class="flex-grow">
         
 <div class="space-y-8">
     <h1 class="text-3xl font-bold mb-6">Murai Batu</h1>
@@ -49,8 +112,105 @@
 
     </main>
     
-    <footer class="container mx-auto px-4 py-6 text-center text-gray-600">
-        <p>&copy; 2025 My New Hugo Site</p>
-    </footer>
+    
+<script>
+  function playAudio(audioSrc, title) {
+    
+    let player = document.getElementById('global-audio-player');
+    
+    
+    if (!player) {
+      player = document.createElement('div');
+      player.id = 'global-audio-player';
+      player.className = 'fixed bottom-0 left-0 right-0 bg-white shadow-lg p-3 z-50 flex items-center';
+      
+      const audioElement = document.createElement('audio');
+      audioElement.id = 'global-audio';
+      audioElement.controls = true;
+      audioElement.className = 'w-full';
+      
+      const titleElement = document.createElement('div');
+      titleElement.id = 'global-audio-title';
+      titleElement.className = 'mr-4 font-medium';
+      
+      const closeButton = document.createElement('button');
+      closeButton.innerHTML = '×';
+      closeButton.className = 'ml-4 text-2xl text-gray-600 hover:text-gray-800';
+      closeButton.onclick = function() {
+        document.body.removeChild(player);
+      };
+      
+      player.appendChild(titleElement);
+      player.appendChild(audioElement);
+      player.appendChild(closeButton);
+      
+      document.body.appendChild(player);
+    }
+    
+    
+    const audioElement = document.getElementById('global-audio');
+    const titleElement = document.getElementById('global-audio-title');
+    
+    titleElement.textContent = 'Now Playing: ' + title;
+    audioElement.src = audioSrc;
+    audioElement.play();
+  }
+</script>
+
+
+<footer class="bg-secondary text-content mt-12 border-t border-border">
+  <div class="container mx-auto px-4 py-8">
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <div>
+        <h3 class="text-accent text-xl font-semibold mb-4">About</h3>
+        <p class="text-sm">Kicau Burung Alam adalah situs yang menyediakan informasi lengkap tentang burung kicau dan suara alam.</p>
+      </div>
+      
+      
+      <div>
+        <h3 class="text-accent text-xl font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="/" class="text-content hover:text-accent transition-colors">Home</a></li>
+          <li><a href="/posts" class="text-content hover:text-accent transition-colors">Articles</a></li>
+          <li><a href="/about" class="text-content hover:text-accent transition-colors">About</a></li>
+          <li><a href="/contact" class="text-content hover:text-accent transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      
+      
+      <div>
+        <h3 class="text-accent text-xl font-semibold mb-4">Connect</h3>
+        <div class="flex space-x-4">
+          <a href="#" aria-label="Twitter" class="text-content hover:text-accent text-xl transition-colors">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-content hover:text-accent text-xl transition-colors">
+            <i class="fa fa-facebook"></i>
+          </a>
+          <a href="#" aria-label="Instagram" class="text-content hover:text-accent text-xl transition-colors">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="border-t border-border mt-8 pt-6 text-center text-sm">
+      <p class="mb-2">&copy; 2025 Kicau Burung Alam. All rights reserved.</p>
+      <p>Built with <a href="https://gohugo.io" target="_blank" class="text-accent hover:underline">Hugo</a></p>
+    </div>
+  </div>
+</footer>
+    
+    
+    
+        
+        <script src="/js/main.min.js"></script>
+    
+    
+    
+    
 </body>
 </html>

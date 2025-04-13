@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>404 Page not found | Kicau Burung Alam</title>
+    
+    
+    <meta name="google-adsense-account" content="ca-pub-2390419518403328">
     
     
     
@@ -43,7 +49,13 @@
     
     
     
-    <link rel="stylesheet" href="/css/main.min.css">
+        
+        <link rel="stylesheet" href="/css/main.min.css">
+    
+    
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2390419518403328"
+     crossorigin="anonymous"></script>
     
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -52,119 +64,23 @@
     
 </head>
 <body class="flex flex-col min-h-screen">
-    <header class="bg-white shadow-sm">
-    <div class="container mx-auto px-4 py-3">
-        <div class="flex justify-between items-center">
-            <div class="text-2xl font-bold text-green-700">
-                <a href="/">Kicau Burung Alam</a>
-            </div>
-            
-            
-            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none z-50 relative">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-            
-            
-            <nav class="hidden md:flex space-x-6">
-                <a href="/" class="text-gray-600 hover:text-green-700 transition duration-200">Beranda</a>
-                <a href="/kicauan/" class="text-gray-600 hover:text-green-700 transition duration-200">Koleksi Kicauan</a>
-                <a href="/artikel/" class="text-gray-600 hover:text-green-700 transition duration-200">Artikel</a>
-            </nav>
-            
-            
-            <div class="hidden md:flex items-center space-x-4">
-                <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-button facebook" title="Facebook">
-                    <i class="fab fa-facebook-f text-xl"></i>
-                </a>
-                <a href="https://youtube.com/channel/yourchannelid" target="_blank" rel="noopener noreferrer" class="social-button youtube" title="YouTube">
-                    <i class="fab fa-youtube text-xl"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
-    <div id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-4/5 max-w-xs bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-xl">
-        <div class="p-4 border-b">
-            <div class="flex justify-between items-center">
-                <h3 class="text-lg font-bold text-green-700">Menu</h3>
-                <button id="mobile-menu-close" class="text-gray-600 focus:outline-none">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-        </div>
-        <nav class="p-4">
-            <ul class="space-y-4">
-                <li>
-                    <a href="/" class="block text-gray-600 hover:text-green-700 py-2 border-b border-gray-100">Beranda</a>
-                </li>
-                <li>
-                    <a href="/kicauan/" class="block text-gray-600 hover:text-green-700 py-2 border-b border-gray-100">Koleksi Kicauan</a>
-                </li>
-                <li>
-                    <a href="/artikel/" class="block text-gray-600 hover:text-green-700 py-2 border-b border-gray-100">Artikel</a>
-                </li>
+    <header class="bg-primary shadow-md">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center">
+            <img src="https://res.cloudinary.com/djnquduyl/image/upload/v1743013684/lg_kicau_burung_rpwxal.png" alt="Kicau Burung Alam Logo" class="h-12 mr-3">
+            <span class="text-xl font-bold text-white">Kicau Burung Alam</span>
+        </a>
+        
+        <nav>
+            <ul class="flex space-x-6">
+                <li><a href="/" class="text-white hover:text-accent">Home</a></li>
+                <li><a href="/posts" class="text-white hover:text-accent">Articles</a></li>
+                <li><a href="/about" class="text-white hover:text-accent">About</a></li>
+                <li><a href="/contact" class="text-white hover:text-accent">Contact</a></li>
             </ul>
         </nav>
-        <div class="p-4 mt-4 flex justify-center space-x-6">
-            <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-button facebook" title="Facebook">
-                <i class="fab fa-facebook-f text-2xl"></i>
-            </a>
-            <a href="https://youtube.com/channel/yourchannelid" target="_blank" rel="noopener noreferrer" class="social-button youtube" title="YouTube">
-                <i class="fab fa-youtube text-2xl"></i>
-            </a>
-        </div>
     </div>
 </header>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        
-        function openMobileMenu() {
-            mobileMenuDrawer.classList.remove('translate-x-full');
-            mobileMenuOverlay.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden'); 
-            mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
-        }
-        
-        function closeMobileMenu() {
-            mobileMenuDrawer.classList.add('translate-x-full');
-            mobileMenuOverlay.classList.add('hidden');
-            document.body.classList.remove('overflow-hidden'); 
-            mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
-        }
-        
-        mobileMenuButton.addEventListener('click', function() {
-            if (mobileMenuDrawer.classList.contains('translate-x-full')) {
-                openMobileMenu();
-            } else {
-                closeMobileMenu();
-            }
-        });
-        
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-        
-        
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 768) { 
-                closeMobileMenu();
-            }
-        });
-        
-        
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !mobileMenuDrawer.classList.contains('translate-x-full')) {
-                closeMobileMenu();
-            }
-        });
-    });
-</script>
     
     <main class="flex-grow">
         
@@ -229,6 +145,53 @@
     audioElement.play();
   }
 </script>
+
+
+<footer class="bg-secondary text-content mt-12 border-t border-border">
+  <div class="container mx-auto px-4 py-8">
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <div>
+        <h3 class="text-accent text-xl font-semibold mb-4">About</h3>
+        <p class="text-sm">Kicau Burung Alam adalah situs yang menyediakan informasi lengkap tentang burung kicau dan suara alam.</p>
+      </div>
+      
+      
+      <div>
+        <h3 class="text-accent text-xl font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="/" class="text-content hover:text-accent transition-colors">Home</a></li>
+          <li><a href="/posts" class="text-content hover:text-accent transition-colors">Articles</a></li>
+          <li><a href="/about" class="text-content hover:text-accent transition-colors">About</a></li>
+          <li><a href="/contact" class="text-content hover:text-accent transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      
+      
+      <div>
+        <h3 class="text-accent text-xl font-semibold mb-4">Connect</h3>
+        <div class="flex space-x-4">
+          <a href="#" aria-label="Twitter" class="text-content hover:text-accent text-xl transition-colors">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-content hover:text-accent text-xl transition-colors">
+            <i class="fa fa-facebook"></i>
+          </a>
+          <a href="#" aria-label="Instagram" class="text-content hover:text-accent text-xl transition-colors">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="border-t border-border mt-8 pt-6 text-center text-sm">
+      <p class="mb-2">&copy; 2025 Kicau Burung Alam. All rights reserved.</p>
+      <p>Built with <a href="https://gohugo.io" target="_blank" class="text-accent hover:underline">Hugo</a></p>
+    </div>
+  </div>
+</footer>
     
     
     

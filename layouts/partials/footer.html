@@ -43,49 +43,35 @@
   }
 </script>
 
-<!-- Updated footer with Tailwind CSS -->
-<footer class="bg-secondary text-content mt-12 border-t border-border">
-  <div class="container mx-auto px-4 py-8">
-    <!-- Footer content grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- About section -->
-      <div>
-        <h3 class="text-accent text-xl font-semibold mb-4">About</h3>
-        <p class="text-sm">Kicau Burung Alam adalah situs yang menyediakan informasi lengkap tentang burung kicau dan suara alam.</p>
-      </div>
-      
-      <!-- Quick Links section -->
-      <div>
-        <h3 class="text-accent text-xl font-semibold mb-4">Quick Links</h3>
-        <ul class="space-y-2">
-          <li><a href="/" class="text-content hover:text-accent transition-colors">Home</a></li>
-          <li><a href="/posts" class="text-content hover:text-accent transition-colors">Articles</a></li>
-          <li><a href="/about" class="text-content hover:text-accent transition-colors">About</a></li>
-          <li><a href="/contact" class="text-content hover:text-accent transition-colors">Contact</a></li>
-        </ul>
-      </div>
-      
-      <!-- Connect section -->
-      <div>
-        <h3 class="text-accent text-xl font-semibold mb-4">Connect</h3>
-        <div class="flex space-x-4">
-          <a href="#" aria-label="Twitter" class="text-content hover:text-accent text-xl transition-colors">
-            <i class="fa fa-twitter"></i>
-          </a>
-          <a href="#" aria-label="Facebook" class="text-content hover:text-accent text-xl transition-colors">
-            <i class="fa fa-facebook"></i>
-          </a>
-          <a href="#" aria-label="Instagram" class="text-content hover:text-accent text-xl transition-colors">
-            <i class="fa fa-instagram"></i>
-          </a>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About</h3>
+            <p>Your personal website description here.</p>
         </div>
-      </div>
+        
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts">Posts</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Connect</h3>
+            <div class="social-icons">
+                <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fa fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
     </div>
     
-    <!-- Footer bottom -->
-    <div class="border-t border-border mt-8 pt-6 text-center text-sm">
-      <p class="mb-2">&copy; {{ now.Format "2006" }} Kicau Burung Alam. All rights reserved.</p>
-      <p>Built with <a href="https://gohugo.io" target="_blank" class="text-accent hover:underline">Hugo</a></p>
+    <div class="footer-bottom">
+        <p>&copy; {{ now.Format "2006" }} Your Name. All rights reserved.</p>
+        <p>Built with <a href="https://gohugo.io" target="_blank">Hugo</a></p>
     </div>
-  </div>
 </footer>
