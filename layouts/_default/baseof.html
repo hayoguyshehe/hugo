@@ -6,26 +6,26 @@
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
     
-    <!-- Replace the PostCSS function with a simple stylesheet link -->
-    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+    <!-- Include Tailwind CSS -->
+    <link href="{{ "css/tailwind.css" | relURL }}" rel="stylesheet">
     
     {{ block "head" . }}{{ end }}
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="{{ .Site.BaseURL }}">Home</a>
+<body class="bg-white text-gray-800 font-sans">
+    <header class="container mx-auto px-4 py-6">
+        <nav class="flex space-x-4">
+            <a href="{{ .Site.BaseURL }}" class="text-blue-600 hover:text-blue-800">Home</a>
             {{ range .Site.Menus.main }}
-            <a href="{{ .URL }}">{{ .Name }}</a>
+            <a href="{{ .URL }}" class="text-blue-600 hover:text-blue-800">{{ .Name }}</a>
             {{ end }}
         </nav>
     </header>
     
-    <main>
+    <main class="container mx-auto px-4 py-6">
         {{ block "main" . }}{{ end }}
     </main>
     
-    <footer>
+    <footer class="container mx-auto px-4 py-6 text-center text-gray-600">
         <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p>
     </footer>
 </body>
