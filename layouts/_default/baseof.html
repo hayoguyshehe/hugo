@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "id" }}">
+<html lang="{{ .Site.Language }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title for browser tab -->
+    <title>{{ if .IsHome }}Kicau Burung Alam{{ else }}{{ .Title }} | Kicau Burung Alam{{ end }}</title>
     
     <!-- Google AdSense Meta Tag -->
     <meta name="google-adsense-account" content="ca-pub-2390419518403328">

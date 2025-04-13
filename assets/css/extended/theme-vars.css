@@ -1,0 +1,29 @@
+:root {
+    /* Dark sage green color palette */
+    --primary-color: #4a6741;
+    --secondary-color: #2c3c2a;
+    --tertiary-color: #5f7356;
+    --content-color: #dce4d7;
+    --header-color: #3a4f38;
+    --background-color: #1e2a1c;
+    --border-color: #5f7356;
+    --accent-color: #7d9672;
+    
+    /* ... existing code ... */
+}
+
+/* Dark theme colors */
+.dark {
+    --primary-color: #5f7356;
+    --secondary-color: #4a6741;
+    --tertiary-color: #7d9672;
+    --content-color: #dce4d7;
+    --header-color: #4a6741;
+    --background-color: #1e2a1c;
+    --border-color: #5f7356;
+    --accent-color: #7d9672;
+    
+    /* ... existing code ... */
+}
+
+/* ... rest of the file ... */
