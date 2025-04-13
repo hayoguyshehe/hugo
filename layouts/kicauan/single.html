@@ -1,0 +1,105 @@
+{{ define "main" }}
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="md:flex">
+                <div class="md:w-1/2">
+                    {{ partial "image-loader.html" (dict 
+                        "src" .Params.image 
+                        "alt" .Title 
+                        "class" "w-full h-full object-cover" 
+                        "skeletonClass" "bg-gray-200 animate-pulse-slow"
+                    ) }}
+                </div>
+                <div class="md:w-1/2 p-6">
+                    <h1 class="text-3xl font-bold mb-2">{{ .Title }}</h1>
+                    <div class="flex items-center mb-4">
+                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm mr-2">{{ .Params.category }}</span>
+                        <span class="text-gray-500 text-sm">Durasi: {{ .Params.duration }}</span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Dengarkan</h3>
+                        <div class="custom-audio-player bg-gray-100 rounded-lg p-4">
+                            <div class="audio-player-title mb-2 font-medium">{{ .Title }}</div>
+                            <audio id="main-player" class="w-full" controls>
+                                <source src="{{ .Params.audio }}" type="audio/mpeg">
+                                Browser Anda tidak mendukung pemutaran audio.
+                            </audio>
+                            <div class="flex justify-between items-center mt-2">
+                                <div class="text-sm text-gray-500" id="current-time">0:00</div>
+                                <div class="text-sm text-gray-500" id="duration">{{ .Params.duration }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <a href="{{ .Params.audio }}" download class="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors inline-flex items-center">
+                            <i class="fas fa-download mr-2"></i>Download Kicauan
+                        </a>
+                    </div>
+                    
+                    <div class="prose max-w-none">
+                        {{ .Content }}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-6 border-t">
+                <h2 class="text-2xl font-bold mb-4">Karakteristik Kicauan</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {{ range .Params.characteristics }}
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold mb-2">{{ .title }}</h3>
+                        <p class="text-gray-600">{{ .description }}</p>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            
+            <div class="p-6 border-t">
+                <h2 class="text-2xl font-bold mb-4">Kicauan Lainnya</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {{ $currentPage := . }}
+                    {{ range first 3 (where (where .Site.RegularPages "Section" "kicauan") "Permalink" "ne" .Permalink) }}
+                    <div class="bg-white border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="h-40 bg-amber-100 relative">
+                            {{ partial "image-loader.html" (dict 
+                                "src" .Params.image 
+                                "alt" .Title 
+                                "class" "w-full h-full object-cover" 
+                                "skeletonClass" "bg-gray-200 animate-pulse-slow"
+                            ) }}
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-2">{{ .Title }}</h3>
+                            <div class="audio-player w-full mb-2">
+                                <audio class="w-full" controls>
+                                    <source src="{{ .Params.audio }}" type="audio/mpeg">
+                                </audio>
+                            </div>
+                            <a href="{{ .Permalink }}" class="text-blue-600 hover:underline text-sm">Lihat Detail</a>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const player = document.getElementById('main-player');
+    const currentTimeDisplay = document.getElementById('current-time');
+    
+    if (player && currentTimeDisplay) {
+        player.addEventListener('timeupdate', function() {
+            const minutes = Math.floor(player.currentTime / 60);
+            const seconds = Math.floor(player.currentTime % 60);
+            currentTimeDisplay.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+        });
+    }
+});
+</script>
+{{ end }}

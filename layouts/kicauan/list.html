@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h1 class="text-3xl font-bold mb-8">Koleksi Kicauan Burung</h1>
+        <p class="text-gray-600 mb-8">Dengarkan dan unduh berbagai suara kicauan burung berkualitas tinggi untuk melatih burung kesayangan Anda.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {{ range .Pages }}
+            {{ partial "sound-card.html" (dict 
+              "title" .Title 
+              "description" .Summary 
+              "image" (.Params.image | default "https://placehold.co/600x400") 
+              "audio" .Params.audio
+            ) }}
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

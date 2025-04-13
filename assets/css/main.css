@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.btn-primary {
+  @apply bg-amber-500 text-white px-6 py-2 rounded-md font-medium hover:bg-amber-600 transition duration-300;
+}
+
+.btn-secondary {
+  @apply bg-white text-amber-500 px-6 py-2 rounded-md font-medium hover:bg-gray-100 transition duration-300;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden transition duration-300;
+}
+
+.card:hover {
+  @apply shadow-lg;
+}
+
+/* Bird sound card styles based on the image */
+.sound-card {
+  @apply bg-[#f0f3e0] rounded-lg overflow-hidden transition duration-300 flex flex-col;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sound-card-thumbnail {
+  @apply w-full h-64 bg-gray-200 flex items-center justify-center text-3xl font-bold text-gray-800;
+}
+
+.sound-card-content {
+  @apply p-4 flex-grow;
+}
+
+.sound-card-title {
+  @apply text-4xl font-bold mb-1;
+}
+
+.sound-card-description {
+  @apply text-xl text-gray-700;
+}
+
+.sound-card-actions {
+  @apply flex mt-auto;
+}
+
+.sound-card-play {
+  @apply bg-[#6b8e23] text-white py-3 px-6 flex-1 text-center text-xl font-medium hover:bg-[#5a7a1e] transition duration-300;
+}
+
+.sound-card-download {
+  @apply bg-[#1d6363] text-white py-3 px-6 flex-1 text-center text-xl font-medium hover:bg-[#174e4e] transition duration-300;
+}
+
+.card-img {
+  @apply w-full h-48 object-cover;
+}
+
+.card-body {
+  @apply p-4;
+}
+
+.card-title {
+  @apply font-medium mb-2;
+}
+
+.card-text {
+  @apply text-gray-600 text-sm mb-4;
+}
+
+.card-price {
+  @apply font-bold text-lg;
+}
+
+/* Animation */
+.hover-scale {
+  @apply transition-transform duration-300;
+}
+
+.hover-scale:hover {
+  @apply transform scale-105;
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Line clamp for text truncation */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Container max-width adjustments for better desktop layout */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* Add these styles to your existing CSS */
+
+/* Mobile drawer menu styles */
+#mobile-menu-drawer {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Prevent scrolling when mobile menu is open */
+body.overflow-hidden {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Overlay fade-in animation */
+#mobile-menu-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#mobile-menu-overlay:not(.hidden) {
+  opacity: 1;
+}
+
+/* Drawer animation */
+.translate-x-full {
+  transform: translateX(100%);
+}
+
+/* Social media buttons */
+.social-button {
+  @apply text-gray-600 hover:text-green-700 transition duration-200 flex items-center justify-center w-10 h-10 rounded-full;
+}
+
+.social-button.facebook:hover {
+  @apply text-blue-600;
+}
+
+.social-button.youtube:hover {
+  @apply text-red-600;
+}
+
+/* Custom Audio Player Styles */
+.custom-audio-player {
+  @apply rounded-lg shadow-sm transition-shadow duration-300;
+}
+
+.custom-audio-player:hover {
+  @apply shadow-md;
+}
+
+.progress-container {
+  @apply cursor-pointer;
+}
+
+.progress-handle {
+  @apply transform transition-all duration-100 cursor-pointer;
+}
+
+.progress-handle:hover {
+  @apply scale-125;
+}
+
+/* Audio player in cards */
+.audio-card {
+  @apply transition-all duration-300;
+}
+
+.audio-card:hover {
+  @apply shadow-lg transform -translate-y-1;
+}
+
+/* Download button animation */
+@keyframes pulse-download {
+  0%, 100% {
+    @apply bg-green-600;
+  }
+  50% {
+    @apply bg-green-500;
+  }
+}
+
+.download-btn {
+  @apply bg-green-600 text-white px-4 py-2 rounded-md transition-all;
+}
+
+.download-btn:hover {
+  animation: pulse-download 2s infinite;
+  @apply shadow-md;
+}
+@layer components {
+  .skeleton {
+    @apply relative overflow-hidden bg-gray-200;
+  }
+  
+  .skeleton::after {
+    @apply absolute inset-0 -translate-x-full;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+    content: '';
+  }
+  
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

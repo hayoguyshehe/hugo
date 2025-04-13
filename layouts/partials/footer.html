@@ -1,0 +1,44 @@
+<!-- Add this script to your footer or at the end of your layout -->
+<script>
+  function playAudio(audioSrc, title) {
+    // Check if there's already a player
+    let player = document.getElementById('global-audio-player');
+    
+    // If no player exists, create one
+    if (!player) {
+      player = document.createElement('div');
+      player.id = 'global-audio-player';
+      player.className = 'fixed bottom-0 left-0 right-0 bg-white shadow-lg p-3 z-50 flex items-center';
+      
+      const audioElement = document.createElement('audio');
+      audioElement.id = 'global-audio';
+      audioElement.controls = true;
+      audioElement.className = 'w-full';
+      
+      const titleElement = document.createElement('div');
+      titleElement.id = 'global-audio-title';
+      titleElement.className = 'mr-4 font-medium';
+      
+      const closeButton = document.createElement('button');
+      closeButton.innerHTML = '×';
+      closeButton.className = 'ml-4 text-2xl text-gray-600 hover:text-gray-800';
+      closeButton.onclick = function() {
+        document.body.removeChild(player);
+      };
+      
+      player.appendChild(titleElement);
+      player.appendChild(audioElement);
+      player.appendChild(closeButton);
+      
+      document.body.appendChild(player);
+    }
+    
+    // Update player with new audio
+    const audioElement = document.getElementById('global-audio');
+    const titleElement = document.getElementById('global-audio-title');
+    
+    titleElement.textContent = 'Now Playing: ' + title;
+    audioElement.src = audioSrc;
+    audioElement.play();
+  }
+</script>

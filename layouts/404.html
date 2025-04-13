@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold mb-6">Halaman Tidak Ditemukan</h1>
+        <p class="text-xl mb-8">Maaf, halaman yang Anda cari tidak dapat ditemukan.</p>
+        <p class="mb-8">Silakan kembali ke beranda atau coba salah satu tautan populer di bawah ini:</p>
+        
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <a href="{{ "kicauan/" | relLangURL }}" class="btn-secondary">Koleksi Kicauan</a>
+            <a href="{{ "artikel/" | relLangURL }}" class="btn-secondary">Artikel Perawatan</a>
+        </div>
+        
+        <a href="{{ .Site.BaseURL | relLangURL }}" class="btn-primary">Kembali ke Beranda</a>
+    </div>
+</section>
+{{ end }}

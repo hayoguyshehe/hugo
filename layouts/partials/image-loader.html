@@ -1,0 +1,18 @@
+{{ $src := .src | default "https://placehold.co/600x400" }}
+{{ $alt := .alt | default "Image" }}
+{{ $class := .class | default "w-full h-full object-cover" }}
+{{ $skeletonClass := .skeletonClass | default "bg-gray-200 animate-pulse-slow" }}
+
+<div class="relative overflow-hidden">
+  <!-- Skeleton loader -->
+  <div class="{{ $skeletonClass }} absolute inset-0"></div>
+  
+  <!-- Actual image -->
+  <img 
+    src="{{ $src }}" 
+    alt="{{ $alt }}" 
+    class="{{ $class }} relative opacity-0 transition-opacity duration-300"
+    onload="this.classList.remove('opacity-0')"
+    onerror="this.classList.remove('opacity-0'); this.src='https://placehold.co/600x400';"
+  >
+</div>

@@ -1,0 +1,49 @@
+baseURL = "https://yourdomain.com/"
+languageCode = "id-id"
+title = "Kicau Burung Alam - Koleksi Suara Kicauan Burung Terlengkap"
+enableRobotsTXT = true
+disableHugoGeneratorInject = true
+enableGitInfo = true
+
+[params]
+  description = "Koleksi suara kicauan burung terlengkap untuk melatih burung kesayangan Anda. Download gratis suara burung berkualitas tinggi."
+  author = "Kicau Burung Alam"
+  images = ["images/default-og-image.jpg"]
+  
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    tabWidth = 4
+    style = "monokai"
+
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = false
+  
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 80
+  [[related.indices]]
+    name = "date"
+    weight = 10

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+<title>My New Hugo Site</title>
+<meta name="description" content="">
+
+
+<link rel="canonical" href="http://localhost:1313/">
+
+
+<meta property="og:title" content="My New Hugo Site">
+<meta property="og:description" content="">
+<meta property="og:url" content="http://localhost:1313/">
+<meta property="og:site_name" content="My New Hugo Site">
+
+<meta property="og:type" content="website">
+
+
+<meta property="og:image" content="http://localhost:1313/images/default-og-image.jpg">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="My New Hugo Site">
+<meta name="twitter:description" content="">
+
+<meta name="twitter:image" content="http://localhost:1313/images/default-og-image.jpg">
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "My New Hugo Site",
+  "url": "http:\/\/localhost:1313\/",
+  "description": "",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "http:\/\/localhost:1313\/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    
+    
+    <link rel="stylesheet" href="/css/main.min.css">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    
+    
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+            <div class="text-2xl font-bold text-green-700">
+                <a href="/">Kicau Burung Alam</a>
+            </div>
+            
+            
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none z-50 relative">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            
+            
+            <nav class="hidden md:flex space-x-6">
+                <a href="/" class="text-gray-600 hover:text-green-700 transition duration-200">Beranda</a>
+                <a href="/kicauan/" class="text-gray-600 hover:text-green-700 transition duration-200">Koleksi Kicauan</a>
+                <a href="/artikel/" class="text-gray-600 hover:text-green-700 transition duration-200">Artikel</a>
+            </nav>
+            
+            
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-button facebook" title="Facebook">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="https://youtube.com/channel/yourchannelid" target="_blank" rel="noopener noreferrer" class="social-button youtube" title="YouTube">
+                    <i class="fab fa-youtube text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+    <div id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-4/5 max-w-xs bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-xl">
+        <div class="p-4 border-b">
+            <div class="flex justify-between items-center">
+                <h3 class="text-lg font-bold text-green-700">Menu</h3>
+                <button id="mobile-menu-close" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li>
+                    <a href="/" class="block text-gray-600 hover:text-green-700 py-2 border-b border-gray-100">Beranda</a>
+                </li>
+                <li>
+                    <a href="/kicauan/" class="block text-gray-600 hover:text-green-700 py-2 border-b border-gray-100">Koleksi Kicauan</a>
+                </li>
+                <li>
+                    <a href="/artikel/" class="block text-gray-600 hover:text-green-700 py-2 border-b border-gray-100">Artikel</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="p-4 mt-4 flex justify-center space-x-6">
+            <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-button facebook" title="Facebook">
+                <i class="fab fa-facebook-f text-2xl"></i>
+            </a>
+            <a href="https://youtube.com/channel/yourchannelid" target="_blank" rel="noopener noreferrer" class="social-button youtube" title="YouTube">
+                <i class="fab fa-youtube text-2xl"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        
+        function openMobileMenu() {
+            mobileMenuDrawer.classList.remove('translate-x-full');
+            mobileMenuOverlay.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); 
+            mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenuDrawer.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden'); 
+            mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+        }
+        
+        mobileMenuButton.addEventListener('click', function() {
+            if (mobileMenuDrawer.classList.contains('translate-x-full')) {
+                openMobileMenu();
+            } else {
+                closeMobileMenu();
+            }
+        });
+        
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) { 
+                closeMobileMenu();
+            }
+        });
+        
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !mobileMenuDrawer.classList.contains('translate-x-full')) {
+                closeMobileMenu();
+            }
+        });
+    });
+</script>
+    
+    <main class="flex-grow">
+        
+
+<section class="bg-amber-400 py-12 md:py-16">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center md:space-x-8">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Koleksi Suara Kicauan Terlengkap</h1>
+                <h2 class="text-xl md:text-2xl font-bold text-white mb-6">Untuk Melatih Burung Kesayangan Anda</h2>
+                <a href="/kicauan" class="bg-white text-amber-500 px-6 py-2 rounded-md font-medium hover:bg-gray-100 inline-block transition duration-300">Dengarkan Sekarang</a>
+            </div>
+            <div class="md:w-1/2">
+                
+
+
+
+
+<div class="relative overflow-hidden">
+  
+  <div class="bg-gray-200 animate-pulse-slow rounded-lg max-h-[400px] absolute inset-0"></div>
+  
+  
+  <img 
+    src="/images/hero-bird.jpg" 
+    alt="Burung Kicau" 
+    class="rounded-lg shadow-lg mx-auto w-full h-full object-cover max-h-[400px] relative opacity-0 transition-opacity duration-300"
+    onload="this.classList.remove('opacity-0')"
+    onerror="this.classList.remove('opacity-0'); this.src='https://placehold.co/600x400';"
+  >
+</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-8 md:py-12">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-6 text-center">Kategori Burung</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            <a href="/kicauan/category/murai-batu" class="bg-rose-200 rounded-lg overflow-hidden relative h-48 md:h-64 hover:shadow-lg transition duration-300">
+                
+
+
+
+
+<div class="relative overflow-hidden">
+  
+  <div class="bg-gray-200 animate-pulse-slow absolute inset-0"></div>
+  
+  
+  <img 
+    src="/images/murai-batu.jpg" 
+    alt="Murai Batu" 
+    class="w-full h-full object-cover relative opacity-0 transition-opacity duration-300"
+    onload="this.classList.remove('opacity-0')"
+    onerror="this.classList.remove('opacity-0'); this.src='https://placehold.co/600x400';"
+  >
+</div>
+                <div class="absolute bottom-4 left-4 bg-white px-4 py-2 rounded-md font-medium shadow-sm">
+                    Murai Batu
+                </div>
+            </a>
+            
+        </div>
+    </div>
+</section>
+
+
+<section class="py-8 md:py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-6 md:mb-8 text-center">Kicauan Terpopuler</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden audio-card hover:shadow-lg transition duration-300">
+                <div class="h-48 bg-amber-100 relative">
+                    
+
+
+
+
+<div class="relative overflow-hidden">
+  
+  <div class="bg-gray-200 animate-pulse-slow absolute inset-0"></div>
+  
+  
+  <img 
+    src="/images/kenari.jpg" 
+    alt="Kicauan Kenari Yorkshire Gacor" 
+    class="w-full h-full object-cover relative opacity-0 transition-opacity duration-300"
+    onload="this.classList.remove('opacity-0')"
+    onerror="this.classList.remove('opacity-0'); this.src='https://placehold.co/600x400';"
+  >
+</div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <h3 class="text-white font-bold">Kicauan Kenari Yorkshire Gacor</h3>
+                    </div>
+                </div>
+                <div class="p-4">
+                    
+
+
+
+
+<div class="custom-audio-player bg-gray-100 rounded-lg p-4 mb-4">
+    <div class="flex items-center justify-between mb-2">
+        <div class="audio-player-title font-medium truncate pr-2">Kicauan Kenari Yorkshire Gacor</div>
+        
+        <a href="/audio/kenari-yorkshire.mp3" download class="text-green-600 hover:text-green-700">
+            <i class="fas fa-download"></i>
+        </a>
+        
+    </div>
+    
+    <div class="audio-player-container" data-audio-src="/audio/kenari-yorkshire.mp3">
+        <div class="flex items-center mb-2">
+            <button class="play-pause-btn bg-amber-500 text-white w-10 h-10 rounded-full flex items-center justify-center focus:outline-none hover:bg-amber-600">
+                <i class="fas fa-play play-icon"></i>
+                <i class="fas fa-pause pause-icon hidden"></i>
+            </button>
+            <div class="ml-4 flex-grow">
+                <div class="progress-container bg-gray-300 h-2 rounded-full relative">
+                    <div class="progress-bar bg-amber-500 h-2 rounded-full w-0"></div>
+                    <div class="progress-handle absolute w-4 h-4 bg-white border-2 border-amber-500 rounded-full -top-1 -ml-2 hidden"></div>
+                </div>
+            </div>
+            <div class="ml-4 time-display text-sm text-gray-500">0:00 / 0:00</div>
+        </div>
+        
+        <audio class="hidden">
+            <source src="/audio/kenari-yorkshire.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung pemutaran audio.
+        </audio>
+    </div>
+</div>
+
+<script>
+
+if (typeof audioPlayerInitialized === 'undefined') {
+    window.audioPlayerInitialized = true;
+    document.addEventListener('DOMContentLoaded', function() {
+        const players = document.querySelectorAll('.audio-player-container');
+        
+        players.forEach(player => {
+            const audio = player.querySelector('audio');
+            const playPauseBtn = player.querySelector('.play-pause-btn');
+            const playIcon = player.querySelector('.play-icon');
+            const pauseIcon = player.querySelector('.pause-icon');
+            const progressBar = player.querySelector('.progress-bar');
+            const progressHandle = player.querySelector('.progress-handle');
+            const progressContainer = player.querySelector('.progress-container');
+            const timeDisplay = player.querySelector('.time-display');
+            
+            
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                seconds = Math.floor(seconds % 60);
+                return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            }
+            
+            
+            function updateProgress() {
+                const percent = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = percent + '%';
+                progressHandle.style.left = percent + '%';
+                
+                if (timeDisplay) {
+                    timeDisplay.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration || 0);
+                }
+            }
+            
+            
+            playPauseBtn.addEventListener('click', function() {
+                if (audio.paused) {
+                    
+                    document.querySelectorAll('audio').forEach(a => {
+                        if (a !== audio) a.pause();
+                    });
+                    
+                    audio.play();
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                } else {
+                    audio.pause();
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                }
+            });
+            
+            
+            audio.addEventListener('timeupdate', updateProgress);
+            
+            
+            audio.addEventListener('loadedmetadata', function() {
+                if (timeDisplay) {
+                    timeDisplay.textContent = '0:00 / ' + formatTime(audio.duration);
+                }
+            });
+            
+            
+            audio.addEventListener('ended', function() {
+                audio.currentTime = 0;
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            });
+            
+            
+            progressContainer.addEventListener('mouseenter', function() {
+                progressHandle.classList.remove('hidden');
+            });
+            
+            
+            progressContainer.addEventListener('mouseleave', function() {
+                if (!isDragging) {
+                    progressHandle.classList.add('hidden');
+                }
+            });
+            
+            
+            let isDragging = false;
+            
+            progressContainer.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                updateSeek(e);
+            });
+            
+            document.addEventListener('mousemove', function(e) {
+                if (isDragging) {
+                    updateSeek(e);
+                }
+            });
+            
+            document.addEventListener('mouseup', function() {
+                if (isDragging) {
+                    isDragging = false;
+                    if (!progressContainer.matches(':hover')) {
+                        progressHandle.classList.add('hidden');
+                    }
+                }
+            });
+            
+            function updateSeek(e) {
+                const rect = progressContainer.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                const seekTime = pos * audio.duration;
+                
+                if (seekTime >= 0 && seekTime <= audio.duration) {
+                    audio.currentTime = seekTime;
+                }
+            }
+        });
+    });
+}
+</script>
+                    <a href="http://localhost:1313/kicauan/kenari-yorkshire-gacor/" class="text-blue-600 hover:underline block text-center mt-2">Lihat Detail</a>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden audio-card hover:shadow-lg transition duration-300">
+                <div class="h-48 bg-amber-100 relative">
+                    
+
+
+
+
+<div class="relative overflow-hidden">
+  
+  <div class="bg-gray-200 animate-pulse-slow absolute inset-0"></div>
+  
+  
+  <img 
+    src="/images/lovebird.jpg" 
+    alt="Kicauan Lovebird Ngekek Panjang" 
+    class="w-full h-full object-cover relative opacity-0 transition-opacity duration-300"
+    onload="this.classList.remove('opacity-0')"
+    onerror="this.classList.remove('opacity-0'); this.src='https://placehold.co/600x400';"
+  >
+</div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <h3 class="text-white font-bold">Kicauan Lovebird Ngekek Panjang</h3>
+                    </div>
+                </div>
+                <div class="p-4">
+                    
+
+
+
+
+<div class="custom-audio-player bg-gray-100 rounded-lg p-4 mb-4">
+    <div class="flex items-center justify-between mb-2">
+        <div class="audio-player-title font-medium truncate pr-2">Kicauan Lovebird Ngekek Panjang</div>
+        
+        <a href="/audio/lovebird-ngekek.mp3" download class="text-green-600 hover:text-green-700">
+            <i class="fas fa-download"></i>
+        </a>
+        
+    </div>
+    
+    <div class="audio-player-container" data-audio-src="/audio/lovebird-ngekek.mp3">
+        <div class="flex items-center mb-2">
+            <button class="play-pause-btn bg-amber-500 text-white w-10 h-10 rounded-full flex items-center justify-center focus:outline-none hover:bg-amber-600">
+                <i class="fas fa-play play-icon"></i>
+                <i class="fas fa-pause pause-icon hidden"></i>
+            </button>
+            <div class="ml-4 flex-grow">
+                <div class="progress-container bg-gray-300 h-2 rounded-full relative">
+                    <div class="progress-bar bg-amber-500 h-2 rounded-full w-0"></div>
+                    <div class="progress-handle absolute w-4 h-4 bg-white border-2 border-amber-500 rounded-full -top-1 -ml-2 hidden"></div>
+                </div>
+            </div>
+            <div class="ml-4 time-display text-sm text-gray-500">0:00 / 0:00</div>
+        </div>
+        
+        <audio class="hidden">
+            <source src="/audio/lovebird-ngekek.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung pemutaran audio.
+        </audio>
+    </div>
+</div>
+
+<script>
+
+if (typeof audioPlayerInitialized === 'undefined') {
+    window.audioPlayerInitialized = true;
+    document.addEventListener('DOMContentLoaded', function() {
+        const players = document.querySelectorAll('.audio-player-container');
+        
+        players.forEach(player => {
+            const audio = player.querySelector('audio');
+            const playPauseBtn = player.querySelector('.play-pause-btn');
+            const playIcon = player.querySelector('.play-icon');
+            const pauseIcon = player.querySelector('.pause-icon');
+            const progressBar = player.querySelector('.progress-bar');
+            const progressHandle = player.querySelector('.progress-handle');
+            const progressContainer = player.querySelector('.progress-container');
+            const timeDisplay = player.querySelector('.time-display');
+            
+            
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                seconds = Math.floor(seconds % 60);
+                return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            }
+            
+            
+            function updateProgress() {
+                const percent = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = percent + '%';
+                progressHandle.style.left = percent + '%';
+                
+                if (timeDisplay) {
+                    timeDisplay.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration || 0);
+                }
+            }
+            
+            
+            playPauseBtn.addEventListener('click', function() {
+                if (audio.paused) {
+                    
+                    document.querySelectorAll('audio').forEach(a => {
+                        if (a !== audio) a.pause();
+                    });
+                    
+                    audio.play();
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                } else {
+                    audio.pause();
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                }
+            });
+            
+            
+            audio.addEventListener('timeupdate', updateProgress);
+            
+            
+            audio.addEventListener('loadedmetadata', function() {
+                if (timeDisplay) {
+                    timeDisplay.textContent = '0:00 / ' + formatTime(audio.duration);
+                }
+            });
+            
+            
+            audio.addEventListener('ended', function() {
+                audio.currentTime = 0;
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            });
+            
+            
+            progressContainer.addEventListener('mouseenter', function() {
+                progressHandle.classList.remove('hidden');
+            });
+            
+            
+            progressContainer.addEventListener('mouseleave', function() {
+                if (!isDragging) {
+                    progressHandle.classList.add('hidden');
+                }
+            });
+            
+            
+            let isDragging = false;
+            
+            progressContainer.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                updateSeek(e);
+            });
+            
+            document.addEventListener('mousemove', function(e) {
+                if (isDragging) {
+                    updateSeek(e);
+                }
+            });
+            
+            document.addEventListener('mouseup', function() {
+                if (isDragging) {
+                    isDragging = false;
+                    if (!progressContainer.matches(':hover')) {
+                        progressHandle.classList.add('hidden');
+                    }
+                }
+            });
+            
+            function updateSeek(e) {
+                const rect = progressContainer.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                const seekTime = pos * audio.duration;
+                
+                if (seekTime >= 0 && seekTime <= audio.duration) {
+                    audio.currentTime = seekTime;
+                }
+            }
+        });
+    });
+}
+</script>
+                    <a href="http://localhost:1313/kicauan/lovebird-ngekek-panjang/" class="text-blue-600 hover:underline block text-center mt-2">Lihat Detail</a>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden audio-card hover:shadow-lg transition duration-300">
+                <div class="h-48 bg-amber-100 relative">
+                    
+
+
+
+
+<div class="relative overflow-hidden">
+  
+  <div class="bg-gray-200 animate-pulse-slow absolute inset-0"></div>
+  
+  
+  <img 
+    src="/images/murai-batu.jpg" 
+    alt="Kicauan Murai Batu Gacor" 
+    class="w-full h-full object-cover relative opacity-0 transition-opacity duration-300"
+    onload="this.classList.remove('opacity-0')"
+    onerror="this.classList.remove('opacity-0'); this.src='https://placehold.co/600x400';"
+  >
+</div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <h3 class="text-white font-bold">Kicauan Murai Batu Gacor</h3>
+                    </div>
+                </div>
+                <div class="p-4">
+                    
+
+
+
+
+<div class="custom-audio-player bg-gray-100 rounded-lg p-4 mb-4">
+    <div class="flex items-center justify-between mb-2">
+        <div class="audio-player-title font-medium truncate pr-2">Kicauan Murai Batu Gacor</div>
+        
+        <a href="/audio/murai-batu-gacor.mp3" download class="text-green-600 hover:text-green-700">
+            <i class="fas fa-download"></i>
+        </a>
+        
+    </div>
+    
+    <div class="audio-player-container" data-audio-src="/audio/murai-batu-gacor.mp3">
+        <div class="flex items-center mb-2">
+            <button class="play-pause-btn bg-amber-500 text-white w-10 h-10 rounded-full flex items-center justify-center focus:outline-none hover:bg-amber-600">
+                <i class="fas fa-play play-icon"></i>
+                <i class="fas fa-pause pause-icon hidden"></i>
+            </button>
+            <div class="ml-4 flex-grow">
+                <div class="progress-container bg-gray-300 h-2 rounded-full relative">
+                    <div class="progress-bar bg-amber-500 h-2 rounded-full w-0"></div>
+                    <div class="progress-handle absolute w-4 h-4 bg-white border-2 border-amber-500 rounded-full -top-1 -ml-2 hidden"></div>
+                </div>
+            </div>
+            <div class="ml-4 time-display text-sm text-gray-500">0:00 / 0:00</div>
+        </div>
+        
+        <audio class="hidden">
+            <source src="/audio/murai-batu-gacor.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung pemutaran audio.
+        </audio>
+    </div>
+</div>
+
+<script>
+
+if (typeof audioPlayerInitialized === 'undefined') {
+    window.audioPlayerInitialized = true;
+    document.addEventListener('DOMContentLoaded', function() {
+        const players = document.querySelectorAll('.audio-player-container');
+        
+        players.forEach(player => {
+            const audio = player.querySelector('audio');
+            const playPauseBtn = player.querySelector('.play-pause-btn');
+            const playIcon = player.querySelector('.play-icon');
+            const pauseIcon = player.querySelector('.pause-icon');
+            const progressBar = player.querySelector('.progress-bar');
+            const progressHandle = player.querySelector('.progress-handle');
+            const progressContainer = player.querySelector('.progress-container');
+            const timeDisplay = player.querySelector('.time-display');
+            
+            
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                seconds = Math.floor(seconds % 60);
+                return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            }
+            
+            
+            function updateProgress() {
+                const percent = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = percent + '%';
+                progressHandle.style.left = percent + '%';
+                
+                if (timeDisplay) {
+                    timeDisplay.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration || 0);
+                }
+            }
+            
+            
+            playPauseBtn.addEventListener('click', function() {
+                if (audio.paused) {
+                    
+                    document.querySelectorAll('audio').forEach(a => {
+                        if (a !== audio) a.pause();
+                    });
+                    
+                    audio.play();
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                } else {
+                    audio.pause();
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                }
+            });
+            
+            
+            audio.addEventListener('timeupdate', updateProgress);
+            
+            
+            audio.addEventListener('loadedmetadata', function() {
+                if (timeDisplay) {
+                    timeDisplay.textContent = '0:00 / ' + formatTime(audio.duration);
+                }
+            });
+            
+            
+            audio.addEventListener('ended', function() {
+                audio.currentTime = 0;
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            });
+            
+            
+            progressContainer.addEventListener('mouseenter', function() {
+                progressHandle.classList.remove('hidden');
+            });
+            
+            
+            progressContainer.addEventListener('mouseleave', function() {
+                if (!isDragging) {
+                    progressHandle.classList.add('hidden');
+                }
+            });
+            
+            
+            let isDragging = false;
+            
+            progressContainer.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                updateSeek(e);
+            });
+            
+            document.addEventListener('mousemove', function(e) {
+                if (isDragging) {
+                    updateSeek(e);
+                }
+            });
+            
+            document.addEventListener('mouseup', function() {
+                if (isDragging) {
+                    isDragging = false;
+                    if (!progressContainer.matches(':hover')) {
+                        progressHandle.classList.add('hidden');
+                    }
+                }
+            });
+            
+            function updateSeek(e) {
+                const rect = progressContainer.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                const seekTime = pos * audio.duration;
+                
+                if (seekTime >= 0 && seekTime <= audio.duration) {
+                    audio.currentTime = seekTime;
+                }
+            }
+        });
+    });
+}
+</script>
+                    <a href="http://localhost:1313/kicauan/murai-batu-gacor/" class="text-blue-600 hover:underline block text-center mt-2">Lihat Detail</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="text-center">
+            <a href="/kicauan/" class="btn-primary inline-block transition duration-300 transform hover:scale-105">Lihat Semua Kicauan</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-8 md:py-12">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-6 md:mb-8 text-center">Tips Perawatan Burung Terbaru</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div class="h-48 bg-amber-100">
+                    
+
+
+
+
+<div class="relative overflow-hidden">
+  
+  <div class="bg-gray-200 animate-pulse-slow absolute inset-0"></div>
+  
+  
+  <img 
+    src="/images/lovebird-care.jpg" 
+    alt="Tips Merawat Lovebird agar Gacor dan Rajin Ngekek" 
+    class="w-full h-full object-cover relative opacity-0 transition-opacity duration-300"
+    onload="this.classList.remove('opacity-0')"
+    onerror="this.classList.remove('opacity-0'); this.src='https://placehold.co/600x400';"
+  >
+</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Tips Merawat Lovebird agar Gacor dan Rajin Ngekek</h3>
+                    <time class="text-gray-500 text-sm block mb-2">02 November 2023</time>
+                    <p class="text-gray-600 mb-4 line-clamp-3"><p>Lovebird merupakan salah satu jenis burung kicau yang populer di kalangan kicau mania. Burung ini dikenal dengan suara ngekeknya yang khas dan dapat bertahan lama. Namun, untuk mendapatkan Lovebird yang gacor dan rajin ngekek, diperlukan perawatan yang tepat. Berikut adalah tips merawat Lovebird agar gacor dan rajin ngekek.</p>
+<h2 id="pemilihan-lovebird-berkualitas">Pemilihan Lovebird Berkualitas</h2>
+<p>Langkah pertama untuk mendapatkan Lovebird yang gacor adalah memilih Lovebird yang berkualitas. Berikut beberapa tips memilih Lovebird berkualitas:</p>
+<ol>
+<li>
+<p><strong>Pilih Lovebird Jantan</strong> - Lovebird jantan umumnya lebih vokal dan rajin ngekek dibandingkan Lovebird betina.</p></p>
+                    <a href="http://localhost:1313/artikel/tips-merawat-lovebird-agar-gacor/" class="text-blue-600 hover:underline">Baca Selengkapnya</a>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div class="h-48 bg-amber-100">
+                    
+
+
+
+
+<div class="relative overflow-hidden">
+  
+  <div class="bg-gray-200 animate-pulse-slow absolute inset-0"></div>
+  
+  
+  <img 
+    src="/images/memaster-murai.jpg" 
+    alt="Cara Memaster Burung Murai Batu dengan Audio yang Efektif" 
+    class="w-full h-full object-cover relative opacity-0 transition-opacity duration-300"
+    onload="this.classList.remove('opacity-0')"
+    onerror="this.classList.remove('opacity-0'); this.src='https://placehold.co/600x400';"
+  >
+</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Cara Memaster Burung Murai Batu dengan Audio yang Efektif</h3>
+                    <time class="text-gray-500 text-sm block mb-2">01 November 2023</time>
+                    <p class="text-gray-600 mb-4 line-clamp-3"><p>Memaster burung Murai Batu dengan audio yang efektif merupakan salah satu teknik yang banyak digunakan oleh para kicau mania. Teknik ini terbukti efektif untuk meningkatkan kualitas kicauan burung Murai Batu. Berikut adalah panduan lengkap cara memaster burung Murai Batu dengan audio yang efektif.</p>
+<h2 id="persiapan-sebelum-memaster">Persiapan Sebelum Memaster</h2>
+<p>Sebelum memulai proses memaster, ada beberapa hal yang perlu dipersiapkan:</p>
+<ol>
+<li>
+<p><strong>Burung dalam Kondisi Prima</strong> - Pastikan burung dalam kondisi sehat dan prima. Burung yang sakit atau stres akan sulit menerima pemasteran.</p></p>
+                    <a href="http://localhost:1313/artikel/cara-memaster-burung-murai-batu/" class="text-blue-600 hover:underline">Baca Selengkapnya</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="text-center mt-6 md:mt-8">
+            <a href="/artikel/" class="btn-primary inline-block transition duration-300 transform hover:scale-105">Lihat Semua Artikel</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-8 md:py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-8 md:mb-12 text-center">Mengapa Memilih Kami</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div class="text-center bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-music text-2xl text-amber-600"></i>
+                </div>
+                <h3 class="font-bold mb-2">Kualitas Audio Premium</h3>
+                <p class="text-gray-600">Rekaman kicauan burung berkualitas tinggi dengan suara jernih tanpa noise</p>
+            </div>
+            
+            <div class="text-center bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-download text-2xl text-amber-600"></i>
+                </div>
+                <h3 class="font-bold mb-2">Download Gratis</h3>
+                <p class="text-gray-600">Unduh semua file audio secara gratis tanpa batasan</p>
+            </div>
+            
+            <div class="text-center bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-book-open text-2xl text-amber-600"></i>
+                </div>
+                <h3 class="font-bold mb-2">Artikel Berkualitas</h3>
+                <p class="text-gray-600">Tips dan panduan perawatan burung dari para ahli dan praktisi berpengalaman</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+    
+    
+<script>
+  function playAudio(audioSrc, title) {
+    
+    let player = document.getElementById('global-audio-player');
+    
+    
+    if (!player) {
+      player = document.createElement('div');
+      player.id = 'global-audio-player';
+      player.className = 'fixed bottom-0 left-0 right-0 bg-white shadow-lg p-3 z-50 flex items-center';
+      
+      const audioElement = document.createElement('audio');
+      audioElement.id = 'global-audio';
+      audioElement.controls = true;
+      audioElement.className = 'w-full';
+      
+      const titleElement = document.createElement('div');
+      titleElement.id = 'global-audio-title';
+      titleElement.className = 'mr-4 font-medium';
+      
+      const closeButton = document.createElement('button');
+      closeButton.innerHTML = '×';
+      closeButton.className = 'ml-4 text-2xl text-gray-600 hover:text-gray-800';
+      closeButton.onclick = function() {
+        document.body.removeChild(player);
+      };
+      
+      player.appendChild(titleElement);
+      player.appendChild(audioElement);
+      player.appendChild(closeButton);
+      
+      document.body.appendChild(player);
+    }
+    
+    
+    const audioElement = document.getElementById('global-audio');
+    const titleElement = document.getElementById('global-audio-title');
+    
+    titleElement.textContent = 'Now Playing: ' + title;
+    audioElement.src = audioSrc;
+    audioElement.play();
+  }
+</script>
+    
+    
+    
+        
+        <script src="/js/main.min.js"></script>
+    
+    
+    
+    
+</body>
+</html>

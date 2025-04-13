@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+<title>404 Page not found | My New Hugo Site</title>
+<meta name="description" content="">
+
+
+<link rel="canonical" href="http://localhost:1313/404.html">
+
+
+<meta property="og:title" content="404 Page not found | My New Hugo Site">
+<meta property="og:description" content="">
+<meta property="og:url" content="http://localhost:1313/404.html">
+<meta property="og:site_name" content="My New Hugo Site">
+
+<meta property="og:type" content="website">
+
+
+<meta property="og:image" content="http://localhost:1313/images/default-og-image.jpg">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="404 Page not found | My New Hugo Site">
+<meta name="twitter:description" content="">
+
+<meta name="twitter:image" content="http://localhost:1313/images/default-og-image.jpg">
+
+
+
+
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    
+    
+    <link rel="stylesheet" href="/css/main.min.css">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    
+    
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+            <div class="text-2xl font-bold text-green-700">
+                <a href="/">Kicau Burung Alam</a>
+            </div>
+            
+            
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none z-50 relative">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            
+            
+            <nav class="hidden md:flex space-x-6">
+                <a href="/" class="text-gray-600 hover:text-green-700 transition duration-200">Beranda</a>
+                <a href="/kicauan/" class="text-gray-600 hover:text-green-700 transition duration-200">Koleksi Kicauan</a>
+                <a href="/artikel/" class="text-gray-600 hover:text-green-700 transition duration-200">Artikel</a>
+            </nav>
+            
+            
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-button facebook" title="Facebook">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="https://youtube.com/channel/yourchannelid" target="_blank" rel="noopener noreferrer" class="social-button youtube" title="YouTube">
+                    <i class="fab fa-youtube text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+    <div id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-4/5 max-w-xs bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-xl">
+        <div class="p-4 border-b">
+            <div class="flex justify-between items-center">
+                <h3 class="text-lg font-bold text-green-700">Menu</h3>
+                <button id="mobile-menu-close" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li>
+                    <a href="/" class="block text-gray-600 hover:text-green-700 py-2 border-b border-gray-100">Beranda</a>
+                </li>
+                <li>
+                    <a href="/kicauan/" class="block text-gray-600 hover:text-green-700 py-2 border-b border-gray-100">Koleksi Kicauan</a>
+                </li>
+                <li>
+                    <a href="/artikel/" class="block text-gray-600 hover:text-green-700 py-2 border-b border-gray-100">Artikel</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="p-4 mt-4 flex justify-center space-x-6">
+            <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-button facebook" title="Facebook">
+                <i class="fab fa-facebook-f text-2xl"></i>
+            </a>
+            <a href="https://youtube.com/channel/yourchannelid" target="_blank" rel="noopener noreferrer" class="social-button youtube" title="YouTube">
+                <i class="fab fa-youtube text-2xl"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        
+        function openMobileMenu() {
+            mobileMenuDrawer.classList.remove('translate-x-full');
+            mobileMenuOverlay.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); 
+            mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenuDrawer.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden'); 
+            mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+        }
+        
+        mobileMenuButton.addEventListener('click', function() {
+            if (mobileMenuDrawer.classList.contains('translate-x-full')) {
+                openMobileMenu();
+            } else {
+                closeMobileMenu();
+            }
+        });
+        
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) { 
+                closeMobileMenu();
+            }
+        });
+        
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !mobileMenuDrawer.classList.contains('translate-x-full')) {
+                closeMobileMenu();
+            }
+        });
+    });
+</script>
+    
+    <main class="flex-grow">
+        
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold mb-6">Halaman Tidak Ditemukan</h1>
+        <p class="text-xl mb-8">Maaf, halaman yang Anda cari tidak dapat ditemukan.</p>
+        <p class="mb-8">Silakan kembali ke beranda atau coba salah satu tautan populer di bawah ini:</p>
+        
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <a href="/kicauan/" class="btn-secondary">Koleksi Kicauan</a>
+            <a href="/artikel/" class="btn-secondary">Artikel Perawatan</a>
+        </div>
+        
+        <a href="/" class="btn-primary">Kembali ke Beranda</a>
+    </div>
+</section>
+
+    </main>
+    
+    
+<script>
+  function playAudio(audioSrc, title) {
+    
+    let player = document.getElementById('global-audio-player');
+    
+    
+    if (!player) {
+      player = document.createElement('div');
+      player.id = 'global-audio-player';
+      player.className = 'fixed bottom-0 left-0 right-0 bg-white shadow-lg p-3 z-50 flex items-center';
+      
+      const audioElement = document.createElement('audio');
+      audioElement.id = 'global-audio';
+      audioElement.controls = true;
+      audioElement.className = 'w-full';
+      
+      const titleElement = document.createElement('div');
+      titleElement.id = 'global-audio-title';
+      titleElement.className = 'mr-4 font-medium';
+      
+      const closeButton = document.createElement('button');
+      closeButton.innerHTML = '×';
+      closeButton.className = 'ml-4 text-2xl text-gray-600 hover:text-gray-800';
+      closeButton.onclick = function() {
+        document.body.removeChild(player);
+      };
+      
+      player.appendChild(titleElement);
+      player.appendChild(audioElement);
+      player.appendChild(closeButton);
+      
+      document.body.appendChild(player);
+    }
+    
+    
+    const audioElement = document.getElementById('global-audio');
+    const titleElement = document.getElementById('global-audio-title');
+    
+    titleElement.textContent = 'Now Playing: ' + title;
+    audioElement.src = audioSrc;
+    audioElement.play();
+  }
+</script>
+    
+    
+    
+        
+        <script src="/js/main.min.js"></script>
+    
+    
+    
+    
+</body>
+</html>

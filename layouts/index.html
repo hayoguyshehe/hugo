@@ -1,0 +1,146 @@
+{{ define "main" }}
+<!-- Hero Banner -->
+<section class="bg-amber-400 py-12 md:py-16">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center md:space-x-8">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Koleksi Suara Kicauan Terlengkap</h1>
+                <h2 class="text-xl md:text-2xl font-bold text-white mb-6">Untuk Melatih Burung Kesayangan Anda</h2>
+                <a href="/kicauan" class="bg-white text-amber-500 px-6 py-2 rounded-md font-medium hover:bg-gray-100 inline-block transition duration-300">Dengarkan Sekarang</a>
+            </div>
+            <div class="md:w-1/2">
+                {{ partial "image-loader.html" (dict 
+                    "src" "/images/hero-bird.jpg" 
+                    "alt" "Burung Kicau" 
+                    "class" "rounded-lg shadow-lg mx-auto w-full h-full object-cover max-h-[400px]" 
+                    "skeletonClass" "bg-gray-200 animate-pulse-slow rounded-lg max-h-[400px]"
+                ) }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories -->
+<section class="py-8 md:py-12">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-6 text-center">Kategori Burung</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            <a href="/kicauan/category/murai-batu" class="bg-rose-200 rounded-lg overflow-hidden relative h-48 md:h-64 hover:shadow-lg transition duration-300">
+                {{ partial "image-loader.html" (dict 
+                    "src" "/images/murai-batu.jpg" 
+                    "alt" "Murai Batu" 
+                    "class" "w-full h-full object-cover" 
+                    "skeletonClass" "bg-gray-200 animate-pulse-slow"
+                ) }}
+                <div class="absolute bottom-4 left-4 bg-white px-4 py-2 rounded-md font-medium shadow-sm">
+                    Murai Batu
+                </div>
+            </a>
+            <!-- Other category items remain unchanged -->
+        </div>
+    </div>
+</section>
+
+<!-- Featured Bird Songs -->
+<section class="py-8 md:py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-6 md:mb-8 text-center">Kicauan Terpopuler</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
+            {{ range first 3 (where .Site.RegularPages "Section" "kicauan") }}
+            <div class="bg-white rounded-lg shadow-md overflow-hidden audio-card hover:shadow-lg transition duration-300">
+                <div class="h-48 bg-amber-100 relative">
+                    {{ partial "image-loader.html" (dict 
+                        "src" .Params.image 
+                        "alt" .Title 
+                        "class" "w-full h-full object-cover" 
+                        "skeletonClass" "bg-gray-200 animate-pulse-slow"
+                    ) }}
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <h3 class="text-white font-bold">{{ .Title }}</h3>
+                    </div>
+                </div>
+                <div class="p-4">
+                    {{ partial "audio-player.html" (dict 
+                        "src" .Params.audio 
+                        "title" .Title 
+                        "showDownload" true 
+                        "downloadLink" .Params.audio
+                    ) }}
+                    <a href="{{ .Permalink }}" class="text-blue-600 hover:underline block text-center mt-2">Lihat Detail</a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        
+        <div class="text-center">
+            <a href="/kicauan/" class="btn-primary inline-block transition duration-300 transform hover:scale-105">Lihat Semua Kicauan</a>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Articles -->
+<section class="py-8 md:py-12">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-6 md:mb-8 text-center">Tips Perawatan Burung Terbaru</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {{ range first 3 (where .Site.RegularPages "Section" "artikel") }}
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <div class="h-48 bg-amber-100">
+                    {{ partial "image-loader.html" (dict 
+                        "src" .Params.image 
+                        "alt" .Title 
+                        "class" "w-full h-full object-cover" 
+                        "skeletonClass" "bg-gray-200 animate-pulse-slow"
+                    ) }}
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">{{ .Title }}</h3>
+                    <time class="text-gray-500 text-sm block mb-2">{{ .Date.Format "02 January 2006" }}</time>
+                    <p class="text-gray-600 mb-4 line-clamp-3">{{ .Summary }}</p>
+                    <a href="{{ .Permalink }}" class="text-blue-600 hover:underline">Baca Selengkapnya</a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        
+        <div class="text-center mt-6 md:mt-8">
+            <a href="/artikel/" class="btn-primary inline-block transition duration-300 transform hover:scale-105">Lihat Semua Artikel</a>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-8 md:py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-8 md:mb-12 text-center">Mengapa Memilih Kami</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div class="text-center bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-music text-2xl text-amber-600"></i>
+                </div>
+                <h3 class="font-bold mb-2">Kualitas Audio Premium</h3>
+                <p class="text-gray-600">Rekaman kicauan burung berkualitas tinggi dengan suara jernih tanpa noise</p>
+            </div>
+            
+            <div class="text-center bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-download text-2xl text-amber-600"></i>
+                </div>
+                <h3 class="font-bold mb-2">Download Gratis</h3>
+                <p class="text-gray-600">Unduh semua file audio secara gratis tanpa batasan</p>
+            </div>
+            
+            <div class="text-center bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-book-open text-2xl text-amber-600"></i>
+                </div>
+                <h3 class="font-bold mb-2">Artikel Berkualitas</h3>
+                <p class="text-gray-600">Tips dan panduan perawatan burung dari para ahli dan praktisi berpengalaman</p>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
