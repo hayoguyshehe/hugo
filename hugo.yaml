@@ -1,0 +1,11 @@
+module:
+  imports:
+    # Your existing imports might be here
+    - path: github.com/hugomods/google-adsense
+
+params:
+  # Your existing parameters might be here
+  google_adsense:
+    client: ca-pub-2390419518403328  # Replace with your actual AdSense client ID
+    # Optional settings
+    # auto_ads: true  # Enable auto ads if needed
