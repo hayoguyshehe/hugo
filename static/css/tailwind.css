@@ -1811,6 +1811,19 @@ body.overflow-hidden {
   .footer-section {
     margin-bottom: 2rem;
   }
+
+  .sidebar-ad {
+    margin-bottom: 2rem;
+  }
+
+  /* Hide sidebar ads on mobile */
+
+  @media (max-width: 768px) {
+    .sidebar-ad {
+      display: none;
+      /* Or you can adjust the styling for mobile instead of hiding */
+    }
+  }
 }
 
 .hover\:scale-105:hover {
@@ -1897,6 +1910,10 @@ body.overflow-hidden {
     margin-top: 2rem;
   }
 
+  .md\:ml-4 {
+    margin-left: 1rem;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -1911,6 +1928,10 @@ body.overflow-hidden {
 
   .md\:w-1\/2 {
     width: 50%;
+  }
+
+  .md\:w-64 {
+    width: 16rem;
   }
 
   .md\:grid-cols-2 {

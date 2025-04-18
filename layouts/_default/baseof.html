@@ -37,9 +37,15 @@
 <body class="flex flex-col min-h-screen">
     {{ partial "header.html" . }}
     
-    <main class="flex-grow">
-        {{ block "main" . }}{{ end }}
-    </main>
+    <div class="container flex flex-col md:flex-row">
+        <main class="flex-grow">
+            {{ block "main" . }}{{ end }}
+        </main>
+        
+        <aside class="md:w-64 md:ml-4">
+            {{ partial "sidebar-ad.html" . }}
+        </aside>
+    </div>
     
     {{ partial "footer.html" . }}
     

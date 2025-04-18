@@ -311,4 +311,15 @@ body.overflow-hidden {
   .footer-section {
       margin-bottom: 2rem;
   }
+
+  .sidebar-ad {
+    margin-bottom: 2rem;
+  }
+  
+  /* Hide sidebar ads on mobile */
+  @media (max-width: 768px) {
+    .sidebar-ad {
+      display: none; /* Or you can adjust the styling for mobile instead of hiding */
+    }
+  }
 }
